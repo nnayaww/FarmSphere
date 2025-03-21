@@ -1,0 +1,141 @@
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Content placeholder for demo */
+  .content-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #0a5d00;
+    color: white;
+    padding: 3rem 0 1.5rem;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .footer-branding {
+    grid-column: span 1;
+  }
+  
+  .footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-logo-light {
+    font-weight: 400;
+  }
+  
+  .footer-tagline {
+    color: #9ae67f;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #1e6b14;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    background-color: #2b7a1f;
+  }
+  
+  .footer-links h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a {
+    color: #d4d4d4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: white;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #1e6b14;
+    color: #9ae67f;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 992px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-branding, .footer-links {
+      text-align: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+    }
+  }
+  

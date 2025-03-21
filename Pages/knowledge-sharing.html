@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmSphere - Knowledge Sharing Hub</title>
+    <link rel="stylesheet" href="../css/knowledge-sharing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Knowledge Hub</span>
+                <h1>Community Knowledge Sharing</h1>
+                <p>Ask questions, share insights, and learn from experienced farmers around the country. Our knowledge hub connects you with practical farming wisdom.</p>
+                <div class="search-container">
+                    <input type="text" placeholder="Search for farming questions and answers...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Left Sidebar -->
+                <aside class="sidebar">
+                    <div class="card">
+                        <h3>Ask a Question</h3>
+                        <p>Have a farming challenge or question? Get insights from our community of experienced farmers.</p>
+                        <button class="btn-primary">Ask Question</button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Popular Tags</h3>
+                        <div class="tags-container">
+                            <span class="tag">Organic Farming</span>
+                            <span class="tag">Soil Health</span>
+                            <span class="tag">Irrigation</span>
+                            <span class="tag">Pest Control</span>
+                            <span class="tag">Crop Rotation</span>
+                            <span class="tag">Livestock</span>
+                            <span class="tag">Equipment</span>
+                            <span class="tag">Sustainable Practices</span>
+                            <span class="tag">Weather</span>
+                            <span class="tag">Market Access</span>
+                            <span class="tag">Regenerative Agriculture</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Need Help?</h3>
+                        <p>Our community guidelines help ensure quality discussions and respectful interactions.</p>
+                        <button class="btn-outline">View Guidelines</button>
+                    </div>
+                </aside>
+
+                <!-- Main Question Area -->
+                <div class="question-area">
+                    <div class="tab-container">
+                        <div class="tabs">
+                            <button class="tab active" data-tab="questions">Questions</button>
+                            <button class="tab" data-tab="articles">Articles</button>
+                            <button class="tab" data-tab="discussions">Discussions</button>
+                        </div>
+                        <div class="filter-sort">
+                            <button class="filter-btn"><i class="fas fa-filter"></i> Filter <i class="fas fa-chevron-down"></i></button>
+                            <button class="sort-btn">Latest <i class="fas fa-chevron-down"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content active" id="questions-content">
+                        <div class="questions-list">
+                            <!-- Question Card 1 -->
+                            <div class="question-card">
+                                <div class="vote-count">
+                                    <button class="vote-btn"><i class="fas fa-thumbs-up"></i></button>
+                                    <span>42</span>
+                                    <span class="vote-text">votes</span>
+                                </div>
+                                <div class="question-content">
+                                    <div class="author-info">
+                                        <img src="https://i.pravatar.cc/150?img=1" alt="Sarah Johnson" class="avatar">
+                                        <div class="author-meta">
+                                            <span class="author-name">Sarah Johnson</span>
+                                            <span class="posted-time">2 days ago</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="question-title">What's the best approach to natural pest control for organic tomato farming?</h3>
+                                    <p class="question-excerpt">I'm struggling with aphids on my tomato plants but want to avoid chemical pesticides. What natural methods work best?</p>
+                                    <div class="question-tags">
+                                        <span class="tag">Organic Farming</span>
+                                        <span class="tag">Pest Control</span>
+                                        <span class="tag">Tomatoes</span>
+                                    </div>
+                                    <div class="question-actions">
+                                        <div class="action-stats">
+                                            <span class="answers-count"><i class="fas fa-comment"></i> 8 answers</span>
+                                            <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                                        </div>
+                                        <button class="answer-btn">Answer</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Question Card 2 -->
+                            <div class="question-card">
+                                <div class="vote-count">
+                                    <button class="vote-btn"><i class="fas fa-thumbs-up"></i></button>
+                                    <span>28</span>
+                                    <span class="vote-text">votes</span>
+                                </div>
+                                <div class="question-content">
+                                    <div class="author-info">
+                                        <img src="https://i.pravatar.cc/150?img=2" alt="Michael Rivera" class="avatar">
+                                        <div class="author-meta">
+                                            <span class="author-name">Michael Rivera</span>
+                                            <span class="posted-time">1 week ago</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="question-title">Soil preparation for winter wheat - clay soil recommendations?</h3>
+                                    <p class="question-excerpt">I'm planning to plant winter wheat in an area with heavy clay soil. What preparation methods would help improve drainage and soil structure?</p>
+                                    <div class="question-tags">
+                                        <span class="tag">Soil Management</span>
+                                        <span class="tag">Winter Wheat</span>
+                                        <span class="tag">Clay Soil</span>
+                                    </div>
+                                    <div class="question-actions">
+                                        <div class="action-stats">
+                                            <span class="answers-count"><i class="fas fa-comment"></i> 15 answers</span>
+                                            <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                                        </div>
+                                        <button class="answer-btn">Answer</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Question Card 3 -->
+                            <div class="question-card">
+                                <div class="vote-count">
+                                    <button class="vote-btn"><i class="fas fa-thumbs-up"></i></button>
+                                    <span>35</span>
+                                    <span class="vote-text">votes</span>
+                                </div>
+                                <div class="question-content">
+                                    <div class="author-info">
+                                        <img src="https://i.pravatar.cc/150?img=3" alt="Lisa Chen" class="avatar">
+                                        <div class="author-meta">
+                                            <span class="author-name">Lisa Chen</span>
+                                            <span class="posted-time">3 days ago</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="question-title">Drip irrigation system recommendations for small-scale vegetable farm?</h3>
+                                    <p class="question-excerpt">Looking to install a drip irrigation system for my 3-acre vegetable farm. Any recommendations on brands and setup?</p>
+                                    <div class="question-tags">
+                                        <span class="tag">Irrigation</span>
+                                        <span class="tag">Small Farm</span>
+                                        <span class="tag">Vegetables</span>
+                                    </div>
+                                    <div class="question-actions">
+                                        <div class="action-stats">
+                                            <span class="answers-count"><i class="fas fa-comment"></i> 12 answers</span>
+                                            <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                                        </div>
+                                        <button class="answer-btn">Answer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="page-btn"><i class="fas fa-arrow-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn">...</button>
+                            <button class="page-btn">10</button>
+                            <button class="page-btn"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="articles-content">
+                        <div class="placeholder-content">
+                            <h3>Farming Articles</h3>
+                            <p>This section will display educational articles written by farming experts.</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="discussions-content">
+                        <div class="placeholder-content">
+                            <h3>Community Discussions</h3>
+                            <p>This section will show ongoing discussions within the farming community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+        <div class="container">
+            <h2>Stay Updated With Farming Insights</h2>
+            <p>Join our newsletter to receive weekly farming tips, knowledge updates, and community highlights.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button class="btn-primary">Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/knowledge-sharing.js"></script>
+    <script>
+    // Load components
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../Components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar if needed
+          if (typeof initNavbar === 'function') {
+            initNavbar();
+          }
+        });
+      
+      // Load footer
+      fetch('../Components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+          // Initialize footer if needed
+          if (typeof initFooter === 'function') {
+            initFooter();
+          }
+        });
+    });
+  </script>
+</body>
+</html>
+
+</body>
+</html>

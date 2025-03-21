@@ -1,0 +1,236 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - FarmSphere</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@400;600;700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <a href="dashboard.html">
+            <span class="logo-farm">FARM</span><span class="logo-sphere">SPHERE</span>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="knowledge-sharing.html">Knowledge Hub</a>
+          <a href="weather.html">Weather</a>
+          <a href="resources.html">Resources</a>
+          <a href="articles.html">Articles</a>
+        </div>
+        <div class="nav-auth">
+          <div class="user-profile">
+            <img src="../images/profile-placeholder.png" alt="Profile" class="profile-img">
+            <span>John Farmer</span>
+            <i class="fas fa-angle-down"></i>
+          </div>
+        </div>
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+      <div class="dashboard-welcome">
+        <h1>Welcome back, John!</h1>
+        <p>Here's what's happening on your farm today</p>
+      </div>
+      <div class="quick-actions">
+        <a href="#" class="action-btn"><i class="fas fa-plus"></i> New Post</a>
+        <a href="#" class="action-btn"><i class="fas fa-cloud-sun"></i> Check Weather</a>
+        <a href="#" class="action-btn"><i class="fas fa-book"></i> Knowledge Hub</a>
+      </div>
+    </section>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-grid">
+      <!-- Weather Summary -->
+      <section class="dashboard-card weather-summary">
+        <div class="card-header">
+          <h2><i class="fas fa-cloud-sun"></i> Today's Weather</h2>
+          <a href="weather.html" class="view-more">View Details</a>
+        </div>
+        <div class="weather-info">
+          <div class="weather-main">
+            <div class="weather-icon">
+              <i class="fas fa-sun"></i>
+            </div>
+            <div class="weather-temp">72°F</div>
+          </div>
+          <div class="weather-details">
+            <div class="weather-detail"><i class="fas fa-wind"></i> 8mph</div>
+            <div class="weather-detail"><i class="fas fa-tint"></i> 20%</div>
+            <div class="weather-detail"><i class="fas fa-temperature-high"></i> 78°F</div>
+            <div class="weather-detail"><i class="fas fa-temperature-low"></i> 65°F</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Activity -->
+      <section class="dashboard-card recent-activity">
+        <div class="card-header">
+          <h2><i class="fas fa-history"></i> Recent Activity</h2>
+          <a href="#" class="view-more">View All</a>
+        </div>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <div class="activity-icon"><i class="fas fa-comment"></i></div>
+            <div class="activity-content">
+              <p><strong>Sarah Johnson</strong> commented on your post about organic pest control</p>
+              <span class="activity-time">2 hours ago</span>
+            </div>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon"><i class="fas fa-share"></i></div>
+            <div class="activity-content">
+              <p><strong>Michael Chen</strong> shared your resource on irrigation systems</p>
+              <span class="activity-time">Yesterday</span>
+            </div>
+          </li>
+          <li class="activity-item">
+            <div class="activity-icon"><i class="fas fa-thumbs-up"></i></div>
+            <div class="activity-content">
+              <p><strong>John Williams</strong> and 5 others liked your photo</p>
+              <span class="activity-time">2 days ago</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Knowledge Hub Highlights -->
+      <section class="dashboard-card knowledge-highlights">
+        <div class="card-header">
+          <h2><i class="fas fa-lightbulb"></i> Knowledge Hub Highlights</h2>
+          <a href="knowledge-sharing.html" class="view-more">View All</a>
+        </div>
+        <div class="knowledge-posts">
+          <div class="knowledge-post">
+            <h3>Seasonal Planting Guide: Summer 2023</h3>
+            <p>Learn the best crops to plant this summer for maximum yield...</p>
+            <div class="post-meta">
+              <span><i class="fas fa-user"></i> Posted by Admin</span>
+              <span><i class="fas fa-comments"></i> 24 Comments</span>
+            </div>
+          </div>
+          <div class="knowledge-post">
+            <h3>Water Conservation Techniques</h3>
+            <p>Discover how to reduce water usage while maintaining crop health...</p>
+            <div class="post-meta">
+              <span><i class="fas fa-user"></i> Posted by Sarah J.</span>
+              <span><i class="fas fa-comments"></i> 17 Comments</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resource Exchange -->
+      <section class="dashboard-card resource-exchange">
+        <div class="card-header">
+          <h2><i class="fas fa-exchange-alt"></i> Resource Exchange</h2>
+          <a href="resources.html" class="view-more">View All</a>
+        </div>
+        <div class="resource-items">
+          <div class="resource-item">
+            <div class="resource-icon"><i class="fas fa-tractor"></i></div>
+            <div class="resource-info">
+              <h3>Tractor Available for Rent</h3>
+              <p>Available Jul 15-20 • 5 miles away</p>
+              <a href="#" class="resource-btn">Contact Owner</a>
+            </div>
+          </div>
+          <div class="resource-item">
+            <div class="resource-icon"><i class="fas fa-seedling"></i></div>
+            <div class="resource-info">
+              <h3>Heirloom Tomato Seeds</h3>
+              <p>Free to exchange • 12 miles away</p>
+              <a href="#" class="resource-btn">Contact Owner</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-branding">
+          <div class="logo">
+            <span class="logo-farm">FARM</span><span class="logo-sphere">SPHERE</span>
+          </div>
+          <p>Connecting farmers, sharing knowledge, growing together</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="link-column">
+            <h4>Platform</h4>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="knowledge-sharing.html">Knowledge Hub</a>
+            <a href="weather.html">Weather</a>
+            <a href="resources.html">Resources</a>
+            <a href="articles.html">Articles</a>
+          </div>
+          <div class="link-column">
+            <h4>Company</h4>
+            <a href="about.html">About Us</a>
+            <a href="team.html">Our Team</a>
+            <a href="careers.html">Careers</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="link-column">
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Use</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="cookies.html">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 FarmSphere. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Mobile Navigation Menu (Hidden by default) -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <span class="logo-farm">FARM</span><span class="logo-sphere">SPHERE</span>
+      </div>
+      <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="knowledge-sharing.html">Knowledge Hub</a>
+      <a href="weather.html">Weather</a>
+      <a href="resources.html">Resources</a>
+      <a href="articles.html">Articles</a>
+      <div class="user-profile mobile-profile">
+        <img src="../images/profile-placeholder.png" alt="Profile" class="profile-img">
+        <span>John Farmer</span>
+      </div>
+      <a href="../index.html" class="logout-btn">Logout</a>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarmSphere - Connecting Farmers</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@400;600;700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation Bar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Empowering Farmers through Connection & Knowledge</h1>
+        <p class="hero-subtitle">Join our community of farmers sharing resources, knowledge, and support</p>
+        <div class="hero-cta">
+          <a href="./Pages/signup.html" class="btn btn-primary">Get Started</a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero-farm.png" alt="Sustainable farming illustration">
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <h2 class="section-title">Why Join FarmSphere?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Knowledge Sharing</h3>
+          <p>Ask questions, share insights, and learn from experienced farmers across the country</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-cloud-sun"></i>
+          </div>
+          <h3>Weather Forecasts</h3>
+          <p>Get accurate, farm-specific weather forecasts to plan your agricultural activities</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Farmer Profiles</h3>
+          <p>Connect with fellow farmers, build your network, and showcase your expertise</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Resource Sharing</h3>
+          <p>Share equipment, seeds, and other resources with local farmers in your community</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community">
+      <div class="community-content">
+        <h2 class="section-title">Join Our Growing Community</h2>
+        <p class="section-subtitle">Connect with thousands of farmers nationwide</p>
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-number">5,000+</span>
+            <span class="stat-label">Active Farmers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">12,000+</span>
+            <span class="stat-label">Knowledge Posts</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1,500+</span>
+            <span class="stat-label">Resources Shared</span>
+          </div>
+        </div>
+      </div>
+      <div class="community-image">
+        <img src="images/community.png" alt="Farming community">
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <h2 class="section-title">What Farmers Say About Us</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial-card active">
+          <div class="testimonial-content">
+            <p>"FarmSphere has transformed how I manage my farm. The knowledge sharing and weather forecasts are invaluable!"</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="images/farmer1.jpg" alt="Farmer portrait">
+            <div class="author-info">
+              <h4>John Williams</h4>
+              <p>Corn Farmer, Iowa</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Being able to connect with other farmers facing similar challenges has helped me improve my yields tremendously."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="images/farmer2.jpg" alt="Farmer portrait">
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>Organic Farmer, California</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"The resource sharing feature saved me thousands in equipment costs. I highly recommend this platform!"</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="images/farmer3.jpg" alt="Farmer portrait">
+            <div class="author-info">
+              <h4>Michael Chen</h4>
+              <p>Vegetable Farmer, Oregon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <div class="testimonial-dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+        </div>
+        <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="cta-content">
+        <h2>Ready to transform your farming experience?</h2>
+        <p>Join thousands of farmers already benefiting from our platform</p>
+        <a href="./Pages/signup.html" class="btn btn-primary">Get Started Today</a>
+      </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+  </div>
+
+  <!-- Mobile Navigation Menu (Hidden by default) -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <span class="logo-farm">FARM</span><span class="logo-sphere">SPHERE</span>
+      </div>
+       <div class="social-icons">
+                    <a href="#" class="social-icon" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                
+      <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="#features" class="active">Features</a>
+      <a href="#community">Community</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="./Pages/articles.html">Articles</a>
+      <a href="./Pages/login.html" class="login-btn">Login</a>
+      <a href="./Pages/signup.html" class="signup-btn">Sign Up</a>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="./js/main.js"></script>
+  <script src="./js/animations.js"></script>
+  <script src="./js/navbar.js"></script>
+  <script src="./js/footer.js"></script>
+  <script>
+    // Load components
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('./Components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar if needed
+          if (typeof initNavbar === 'function') {
+            initNavbar();
+          }
+        });
+      
+      // Load footer
+      fetch('./Components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+          // Initialize footer if needed
+          if (typeof initFooter === 'function') {
+            initFooter();
+          }
+        });
+    });
+  </script>
+</body>
+</html>
