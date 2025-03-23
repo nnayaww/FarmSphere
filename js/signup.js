@@ -1,18 +1,16 @@
-
 document.addEventListener('DOMContentLoaded', function () {
   const signupForm = document.getElementById('signupForm');
 
   if (signupForm) {
-    signupForm.addEventListener('submit', function (e) {
+    signupForm.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
-      const email = document.getElementById('email').value;
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       const confirmPassword = document.getElementById('confirmPassword').value;
-      const termsCheck = document.getElementById('agreeTerms').value;
-      console.log(termsCheck)
+      const termsChecked = document.getElementById('agreeTerms').checked;
 
       // Form validation
       if (!firstName || !lastName || !email || !password || !confirmPassword) {
@@ -25,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      if (!termsCheck) {
+      if (!termsChecked) {
         alert('Please agree to the Terms of Service and Privacy Policy');
         return;
       }
@@ -43,12 +41,38 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // Here you would normally send the data to a server
-      console.log('Signup attempt:', { firstName, lastName, email, password });
+      // Combine first and last name to create the username
+      const username = `${firstName} ${lastName}`;
 
-      // Simulate successful signup and redirect
-      localStorage.setItem('isSignedUp', 'true');
-      window.location.href = '../pages/login.html';
+      // Create the payload that the backend expects
+      const payload = { username, email, password };
+
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          // Display error message from the server
+          alert(data.message || 'Error creating account');
+          return;
+        }
+
+        // Optionally, store the token in localStorage if needed
+        localStorage.setItem('token', data.token);
+        alert('Account created successfully!');
+        // Redirect to login page
+        window.location.href = '../pages/login.html';
+      } catch (error) {
+        console.error('Error during signup:', error);
+        alert('An error occurred. Please try again.');
+      }
     });
   }
 
@@ -57,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (googleSignupBtn) {
     googleSignupBtn.addEventListener('click', function () {
       console.log('Google signup clicked');
-      // Here you would implement OAuth or similar
+      // Implement OAuth or similar integration here
       alert('Google signup feature would connect to Google OAuth here');
     });
   }

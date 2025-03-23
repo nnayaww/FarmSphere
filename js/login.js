@@ -2,38 +2,60 @@ document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById('loginForm');
 
   if (loginForm) {
-    loginForm.addEventListener('submit', function (e) {
+    loginForm.addEventListener('submit', async function (e) {
       e.preventDefault();
 
+      // Retrieve form fields
       const emailField = document.getElementById('email');
+      // Using the password field with id "password"
       const passwordField = document.getElementById('password');
-      // const agreeTerms = document.getElementById('agreeTerms').checked;
 
-      let isValid = true;
+      const email = emailField.value.trim();
+      const password = passwordField.value;
 
-      // Form validation
-      if (!emailField.value || !passwordField.value) {
+      // Basic form validation
+      if (!email || !password) {
         emailField.classList.add("shake");
         passwordField.classList.add("shake");
-        isValid = false;
+        setTimeout(() => {
+          emailField.classList.remove("shake");
+          passwordField.classList.remove("shake");
+        }, 800);
+        alert("Please fill in both email and password.");
+        return;
       }
 
-      // if (!agreeTerms) {
-      //   alert('Please agree to the Terms & Conditions');
-      //   return;
-      // }
+      
 
-      // Remove shake effect after animation completes
-      setTimeout(() => {
-        emailField.classList.remove("shake");
-        passwordField.classList.remove("shake");
-      }, 800);
+      // Prepare payload for login
+      const payload = { email, password };
 
-      if (!isValid) return;
+      try {
+        // Send POST request to the login endpoint
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
 
-      // Simulate successful login and redirect
-      localStorage.setItem('isLoggedIn', 'true');
-      window.location.href = "dashboard.html";
+        const data = await response.json();
+
+        if (!response.ok) {
+          alert(data.message || 'Invalid credentials');
+          return;
+        }
+
+        
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        alert('Login successful!');
+        window.location.href = "dashboard.html";
+      } catch (error) {
+        console.error('Error during login:', error);
+        alert('An error occurred during login. Please try again.');
+      }
     });
   }
 
