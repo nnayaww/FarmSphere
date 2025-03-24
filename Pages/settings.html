@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - FarmSphere</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/settings.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@400;600;700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <a href="dashboard.html">
+            <span class="logo-farm">FARM</span><span class="logo-sphere">SPHERE</span>
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="knowledge-sharing.html">Knowledge Hub</a>
+          <a href="weather.html">Weather</a>
+          <a href="resources.html">Resources</a>
+          <a href="articles.html">Articles</a>
+        </div>
+        <div class="nav-auth">
+          <div class="user-profile">
+            <img src="../images/profile-placeholder.png" alt="Profile" class="profile-img">
+            <span class="user-name">John Farmer</span>
+            <i class="fas fa-angle-down"></i>
+            <div class="profile-dropdown">
+              <div class="dropdown-header">
+                <img src="../images/profile-placeholder.png" alt="Profile" class="dropdown-profile-img">
+                <div class="user-info">
+                  <span class="user-full-name">John Farmer</span>
+                  <span class="user-email">john@example.com</span>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a href="profile.html" class="dropdown-item">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item active">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+              <a href="#" class="dropdown-item theme-toggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Settings Content -->
+    <main class="settings-content">
+      <div class="settings-container">
+        <h1>Account Settings</h1>
+        
+        <div class="settings-sections">
+          <!-- Account Settings -->
+          <section class="settings-section">
+            <h2>Account Settings</h2>
+            <form id="accountSettingsForm" class="settings-form">
+              <div class="form-group">
+                <label for="language">Language</label>
+                <select id="language" name="language">
+                  <option value="en">English</option>
+                  <option value="es">Spanish</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="timezone">Timezone</label>
+                <select id="timezone" name="timezone">
+                  <option value="UTC">UTC</option>
+                  <option value="EST">Eastern Time</option>
+                  <option value="CST">Central Time</option>
+                  <option value="PST">Pacific Time</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dateFormat">Date Format</label>
+                <select id="dateFormat" name="dateFormat">
+                  <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                  <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                  <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                </select>
+              </div>
+            </form>
+          </section>
+
+          <!-- Notification Settings -->
+          <section class="settings-section">
+            <h2>Notification Settings</h2>
+            <form id="notificationSettingsForm" class="settings-form">
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="emailNotifications" checked>
+                  Email Notifications
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="weatherAlerts" checked>
+                  Weather Alerts
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="marketUpdates" checked>
+                  Market Updates
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="newsletter" checked>
+                  Newsletter Subscription
+                </label>
+              </div>
+            </form>
+          </section>
+
+          <!-- Privacy Settings -->
+          <section class="settings-section">
+            <h2>Privacy Settings</h2>
+            <form id="privacySettingsForm" class="settings-form">
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="profileVisibility" checked>
+                  Make Profile Public
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="showLocation" checked>
+                  Show Location
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="showContact" checked>
+                  Show Contact Information
+                </label>
+              </div>
+            </form>
+          </section>
+
+          <!-- Danger Zone -->
+          <section class="settings-section danger-zone">
+            <h2>Danger Zone</h2>
+            <div class="danger-actions">
+              <button class="danger-btn" id="deleteAccountBtn">
+                <i class="fas fa-trash"></i>
+                Delete Account
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <div class="settings-actions">
+          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="button" class="save-btn" id="saveSettingsBtn">Save Changes</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAlkVBPWr5gw4wJGcLbAcpfFkCUfKLgdf4",
+      authDomain: "farmsphere-b9e3b.firebaseapp.com",
+      projectId: "farmsphere-b9e3b",
+      storageBucket: "farmsphere-b9e3b.firebasestorage.app",
+      messagingSenderId: "845445767021",
+      appId: "1:845445767021:web:1df82928d21949892a4464",
+      measurementId: "G-L5GCRZSP52"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- App Scripts -->
+  <script src="../js/settings.js"></script>
+</body>
+</html> 

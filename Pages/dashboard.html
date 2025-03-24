@@ -31,9 +31,36 @@
         </div>
         <div class="nav-auth">
           <div class="user-profile">
-            <img src="../images/profile-placeholder.png" alt="Profile" class="profile-img">
-            <span>John Farmer</span>
+            <img src="../images/profile-placeholder.svg" alt="Profile" class="profile-img">
+            <span class="user-name">John Farmer</span>
             <i class="fas fa-angle-down"></i>
+            <div class="profile-dropdown">
+              <div class="dropdown-header">
+                <img src="../images/profile-placeholder.svg" alt="Profile" class="dropdown-profile-img">
+                <div class="user-info">
+                  <span class="user-full-name">John Farmer</span>
+                  <span class="user-email">john@example.com</span>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a href="profile.html" class="dropdown-item">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </a>
+              <a href="#" class="dropdown-item theme-toggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </div>
           </div>
         </div>
         <div class="mobile-menu-toggle">
@@ -230,6 +257,29 @@
     </div>
   </div>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAlkVBPWr5gw4wJGcLbAcpfFkCUfKLgdf4",
+      authDomain: "farmsphere-b9e3b.firebaseapp.com",
+      projectId: "farmsphere-b9e3b",
+      storageBucket: "farmsphere-b9e3b.firebasestorage.app",
+      messagingSenderId: "845445767021",
+      appId: "1:845445767021:web:1df82928d21949892a4464",
+      measurementId: "G-L5GCRZSP52"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- App Scripts -->
   <script src="../js/main.js"></script>
   <script src="../js/dashboard.js"></script>
 </body>

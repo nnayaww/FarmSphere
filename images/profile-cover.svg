@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="1200" height="300" fill="#4CAF50"/>
+    
+    <!-- Pattern -->
+    <path d="M0 0L1200 300M1200 0L0 300" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    
+    <!-- Decorative Elements -->
+    <circle cx="100" cy="100" r="50" fill="rgba(255,255,255,0.1)"/>
+    <circle cx="1100" cy="200" r="30" fill="rgba(255,255,255,0.1)"/>
+    <circle cx="600" cy="150" r="40" fill="rgba(255,255,255,0.1)"/>
+</svg> 
