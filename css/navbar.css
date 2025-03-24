@@ -27,49 +27,76 @@
     top: 0;
     z-index: 50;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
   }
   
-  .logo a {
-    text-decoration: none;
-    color: white;
+  .nav-brand {
+    display: flex;
+    align-items: center;
   }
   
-  .brand-name {
+  .logo {
+    text-decoration: none;
+    color: white;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
   }
   
-  .brand-light {
+  .logo-light {
     font-weight: 400;
+  }
+  
+  .nav-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
   }
   
   .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
   }
   
   .nav-links a {
     color: white;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     padding-bottom: 0.25rem;
+    position: relative;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ecf8e5;
+    transition: width 0.3s ease;
   }
   
   .nav-links a:hover {
-    color: #9ae67f;
+    color: #ecf8e5;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
   }
   
   .nav-links a.active {
-    border-bottom: 2px solid #9ae67f;
+    color: #ecf8e5;
+  }
+  
+  .nav-links a.active::after {
+    width: 100%;
   }
   
   .nav-buttons {
@@ -85,7 +112,7 @@
   }
   
   .login-btn:hover {
-    color: #9ae67f;
+    color: #ecf8e5;
   }
   
   .signup-btn {
@@ -105,8 +132,12 @@
   
   .mobile-menu-btn {
     display: none;
+    background: none;
+    border: none;
+    color: white;
     cursor: pointer;
     font-size: 1.5rem;
+    padding: 0.5rem;
   }
   
   /* Content placeholder for demo */
@@ -123,7 +154,12 @@
   
   /* Mobile styles */
   @media (max-width: 768px) {
-    .nav-menu, .nav-buttons {
+    .navbar {
+      padding: 1rem;
+    }
+  
+    .nav-menu, 
+    .nav-buttons {
       display: none;
     }
   
@@ -148,10 +184,13 @@
       flex-direction: column;
       width: 100%;
       margin-top: 1rem;
+      align-items: center;
     }
   
     .signup-btn {
       text-align: center;
+      width: 100%;
+      max-width: 200px;
     }
   
     .mobile-menu-btn {

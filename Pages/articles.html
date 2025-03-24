@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - FarmSphere</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/articles.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@400;600;700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Bar Component -->
+        <div id="navbar-container"></div>
+
+        <!-- Articles Section -->
+        <main class="articles-container">
+            <div class="articles-header">
+                <h1>Farming Knowledge Hub</h1>
+                <p>Discover valuable insights, tips, and best practices from experienced farmers and agricultural experts.</p>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="articles-grid">
+                <!-- Articles will be dynamically loaded here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <!-- Pagination controls will be dynamically loaded here -->
+            </div>
+        </main>
+
+        <!-- Footer Component -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/articles.js"></script>
+    <script>
+        // Load components with error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar
+            fetch('../Components/navbar.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load navbar');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    if (typeof initNavbar === 'function') {
+                        initNavbar();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading navbar:', error);
+                    document.getElementById('navbar-container').innerHTML = '<div class="error-message">Failed to load navigation</div>';
+                });
+            
+            // Load footer
+            fetch('../Components/footer.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load footer');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    if (typeof initFooter === 'function') {
+                        initFooter();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading footer:', error);
+                    document.getElementById('footer-container').innerHTML = '<div class="error-message">Failed to load footer</div>';
+                });
+        });
+    </script>
+</body>
+</html>

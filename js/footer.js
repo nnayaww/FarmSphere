@@ -1,31 +1,35 @@
-
 // Function to initialize footer functionality
 function initFooter() {
-    // Update the current year in the footer
-    const yearElement = document.getElementById('current-year');
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
-    
-    // Add any other footer functionality here
-    
-    // Initialize social media links if needed
-    const socialLinks = document.querySelectorAll('.social-links a');
-    socialLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        // Prevent default if links aren't configured yet
-        if (link.getAttribute('href') === '#') {
-          e.preventDefault();
-          console.log('Social media link clicked');
-        }
-      });
-    });
+  // Update copyright year
+  const currentYear = new Date().getFullYear();
+  const copyrightElement = document.querySelector('.footer-bottom p');
+  if (copyrightElement) {
+    copyrightElement.innerHTML = `&copy; ${currentYear} FARMSPHERE. All rights reserved.`;
   }
-  
-  // If the footer is loaded directly (not as a component)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFooter);
-  } else {
-    initFooter();
-  }
-  
+
+  // Initialize social media links
+  const socialLinks = document.querySelectorAll('.social-links a');
+  socialLinks.forEach(link => {
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+  });
+}
+
+// If the footer is loaded directly (not as a component)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFooter);
+} else {
+  initFooter();
+}
+
+// Load footer component
+document.addEventListener('DOMContentLoaded', function () {
+  // Load footer HTML
+  fetch('../Components/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+      initFooter(); // Initialize footer after loading
+    })
+    .catch(error => console.error('Error loading footer:', error));
+});

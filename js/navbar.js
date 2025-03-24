@@ -1,39 +1,34 @@
-// Function to initialize navbar functionality
-function initNavbar() {
-    // Mobile menu toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileMenuClose = document.querySelector('.mobile-menu-close');
-    
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
+// Load navbar component
+document.addEventListener('DOMContentLoaded', function () {
+  // Load navbar HTML
+  fetch('../Components/navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+
+      // Set active state based on current page
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      // Set active state based on current page
+      navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+        if (currentPath.includes(linkPath)) {
+          link.classList.add('active');
+        }
       });
-    }
-    
-    if (mobileMenuClose) {
-      mobileMenuClose.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-      });
-    }
-    
-    // Handle active link state
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === window.location.pathname || 
-          (link.getAttribute('href') === 'index.html' && window.location.pathname === '/')) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navMenu = document.querySelector('.nav-menu');
+      const navButtons = document.querySelector('.nav-buttons');
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          navButtons.classList.toggle('active');
+        });
       }
-    });
-  }
-  
-  // If the navbar is loaded directly (not as a component)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNavbar);
-  } else {
-    initNavbar();
-  }
-  
+    })
+    .catch(error => console.error('Error loading navbar:', error));
+});

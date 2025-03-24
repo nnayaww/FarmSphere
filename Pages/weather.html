@@ -1,114 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farmsphere - Weather Forecast</title>
-  <link rel="stylesheet" href="/css/weather.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/css/navbar.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/weather-icons.css">
-  <link rel="stylesheet" href="/css/animations.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast - FarmSphere</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/weather.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/weather-icons.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@400;600;700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          fetch('../components/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById('navbar').innerHTML = data;
-            });
-      
-          fetch('../components/footer.html')
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById('footer').innerHTML = data;
-            });
-        });
-      </script>
-  <div class="weather-container">
-    <!-- Include Navbar Component (Simplified) -->
-    <div id="navbar"></div>
+    <div class="weather-container">
+        <!-- Navigation Bar -->
+        <div id="navbar-container"></div>
 
-    <div class="weather-content">
-      <!-- Search Bar -->
-      <div class="search-container">
-        <form id="search-form" class="search-bar">
-          <input type="text" id="location-input" placeholder="Search for a location...">
-          <button type="submit">Search</button>
-        </form>
-      </div>
-
-      <!-- Loading State -->
-      <div id="loading" class="loading-container">
-        <div class="loader"></div>
-        <p>Fetching weather data...</p>
-      </div>
-
-      <!-- Main Weather Display -->
-      <div id="weather-data" class="weather-data-container">
-        <div class="main-weather glass-panel">
-          <div class="weather-info">
-            <div class="location-info">
-              <h2 id="current-date" class="date">Loading...</h2>
-              <h1 id="location-name" class="location-name">Loading location...</h1>
-              <div class="temperature-container">
-                <span id="temperature" class="temperature-display">--°</span>
-                <span id="weather-icon" class="large-weather-icon">☀️</span>
-              </div>
-              <p id="condition" class="condition">Updating...</p>
+        <!-- Weather Content -->
+        <div class="weather-content">
+            <!-- Search Bar -->
+            <div class="search-container animate-on-scroll">
+                <form id="search-form" class="search-bar">
+                    <input type="text" id="location-input" placeholder="Search for a location...">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
-            
-            <div class="highlights">
-              <h3>Today's Highlights</h3>
-              <div class="highlights-grid">
-                <div class="highlight-card glass-panel">
-                  <div class="info-label">Real Feel</div>
-                  <div id="feels-like" class="info-value">--°</div>
-                </div>
-                <div class="highlight-card glass-panel">
-                  <div class="info-label">Wind</div>
-                  <div id="wind" class="info-value">-- km/h</div>
-                </div>
-                <div class="highlight-card glass-panel">
-                  <div class="info-label">Chance of Rain</div>
-                  <div id="rain-chance" class="info-value">--%</div>
-                </div>
-                <div class="highlight-card glass-panel">
-                  <div class="info-label">UV Index</div>
-                  <div id="uv-index" class="info-value">--</div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Hourly Forecast -->
-          <div class="hourly-forecast">
-            <h3>Today's Forecast</h3>
-            <div id="hourly-forecast-container" class="forecast-grid">
-              <!-- Hourly forecast cards will be inserted here -->
+            <!-- Loading State -->
+            <div id="loading" class="loading-container">
+                <div class="loader"></div>
+                <p>Fetching weather data...</p>
             </div>
-          </div>
+
+            <!-- Main Weather Display -->
+            <div id="weather-data" class="weather-data-container">
+                <div class="main-weather glass-panel animate-on-scroll">
+                    <div class="weather-info">
+                        <div class="location-info">
+                            <h2 id="current-date" class="date">Loading...</h2>
+                            <h1 id="location-name" class="location-name">Loading location...</h1>
+                            <div class="temperature-container">
+                                <span id="temperature" class="temperature-display">--°</span>
+                                <span id="weather-icon" class="large-weather-icon">☀️</span>
+                            </div>
+                            <p id="condition" class="condition">Updating...</p>
+                        </div>
+                        
+                        <div class="highlights">
+                            <h3>Today's Highlights</h3>
+                            <div class="highlights-grid">
+                                <div class="highlight-card glass-panel">
+                                    <div class="info-label">Real Feel</div>
+                                    <div id="feels-like" class="info-value">--°</div>
+                                </div>
+                                <div class="highlight-card glass-panel">
+                                    <div class="info-label">Wind</div>
+                                    <div id="wind" class="info-value">-- km/h</div>
+                                </div>
+                                <div class="highlight-card glass-panel">
+                                    <div class="info-label">Chance of Rain</div>
+                                    <div id="rain-chance" class="info-value">--%</div>
+                                </div>
+                                <div class="highlight-card glass-panel">
+                                    <div class="info-label">UV Index</div>
+                                    <div id="uv-index" class="info-value">--</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hourly Forecast -->
+                    <div class="hourly-forecast">
+                        <h3>Today's Forecast</h3>
+                        <div id="hourly-forecast-container" class="forecast-grid">
+                            <!-- Hourly forecast cards will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Forecast -->
+            <div class="weekly-forecast glass-panel animate-on-scroll">
+                <h3>7-Day Forecast</h3>
+                <div id="weekly-forecast-container" class="weekly-forecast-list">
+                    <!-- Weekly forecast items will be inserted here -->
+                </div>
+            </div>
         </div>
-      </div>
 
-      <!-- Weekly Forecast -->
-      <div class="weekly-forecast glass-panel">
-        <h3>7-Day Forecast</h3>
-        <div id="weekly-forecast-container" class="weekly-forecast-list">
-          <!-- Weekly forecast items will be inserted here -->
-        </div>
-      </div>
+        <!-- Footer -->
+        <div id="footer-container"></div>
     </div>
 
-    <!-- Include Footer Component (Simplified) -->
-    <div id="footer"></div>
-  </div>
-
-  <script src="/js/weather.js"></script>
+    <script src="../js/weather.js"></script>
+    <script>
+        // Load components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar
+            fetch('../Components/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    // Initialize navbar if needed
+                    if (typeof initNavbar === 'function') {
+                        initNavbar();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading navbar:', error);
+                    document.getElementById('navbar-container').innerHTML = '<div class="error-message">Error loading navigation</div>';
+                });
+            
+            // Load footer
+            fetch('../Components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                    // Initialize footer if needed
+                    if (typeof initFooter === 'function') {
+                        initFooter();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading footer:', error);
+                    document.getElementById('footer-container').innerHTML = '<div class="error-message">Error loading footer</div>';
+                });
+        });
+    </script>
 </body>
 </html>

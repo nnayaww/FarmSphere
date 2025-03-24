@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
-    <div id="navbar-container"></div>
-    <!-- Hero Section -->
+        <div id="navbar-container"></div>
+            <!-- Hero Section -->
     <div class="hero">
         <div class="container">
             <div class="hero-content">
@@ -21,7 +21,7 @@
                 <p>Ask questions, share insights, and learn from experienced farmers around the country. Our knowledge hub connects you with practical farming wisdom.</p>
                 <div class="search-container">
                     <input type="text" placeholder="Search for farming questions and answers...">
-                    <i class="fas fa-search"></i>
+                        <i class="fas fa-search"></i>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                             <span class="tag">Market Access</span>
                             <span class="tag">Regenerative Agriculture</span>
                         </div>
-                    </div>
+                            </div>
 
                     <div class="card">
                         <h3>Need Help?</h3>
@@ -186,14 +186,14 @@
                             <button class="page-btn">10</button>
                             <button class="page-btn"><i class="fas fa-arrow-right"></i></button>
                         </div>
-                    </div>
+                </div>
 
                     <div class="tab-content" id="articles-content">
                         <div class="placeholder-content">
                             <h3>Farming Articles</h3>
                             <p>This section will display educational articles written by farming experts.</p>
                         </div>
-                    </div>
+                            </div>
 
                     <div class="tab-content" id="discussions-content">
                         <div class="placeholder-content">
@@ -221,30 +221,30 @@
     <script src="../js/knowledge-sharing.js"></script>
     <script>
     // Load components
-    document.addEventListener('DOMContentLoaded', function() {
-      // Load navbar
-      fetch('../Components/navbar.html')
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar
+            fetch('../Components/navbar.html')
         .then(response => response.text())
-        .then(data => {
-          document.getElementById('navbar-container').innerHTML = data;
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
           // Initialize navbar if needed
-          if (typeof initNavbar === 'function') {
-            initNavbar();
-          }
-        });
-      
-      // Load footer
-      fetch('../Components/footer.html')
+                    if (typeof initNavbar === 'function') {
+                        initNavbar();
+                    }
+                });
+            
+            // Load footer
+            fetch('../Components/footer.html')
         .then(response => response.text())
-        .then(data => {
-          document.getElementById('footer-container').innerHTML = data;
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
           // Initialize footer if needed
-          if (typeof initFooter === 'function') {
-            initFooter();
-          }
+                    if (typeof initFooter === 'function') {
+                        initFooter();
+                    }
+                });
         });
-    });
-  </script>
+    </script>
 </body>
 </html>
 

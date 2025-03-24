@@ -1,252 +1,236 @@
+// Knowledge Sharing Page JavaScript
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Tab Switching
-  const tabs = document.querySelectorAll('.tab');
-  const tabContents = document.querySelectorAll('.tab-content');
-  
-  tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-          // Remove active class from all tabs
-          tabs.forEach(t => t.classList.remove('active'));
-          // Add active class to clicked tab
-          tab.classList.add('active');
-          
-          // Hide all tab contents
-          tabContents.forEach(content => content.classList.remove('active'));
-          
-          // Show the corresponding tab content
-          const targetTabId = `${tab.dataset.tab}-content`;
-          document.getElementById(targetTabId).classList.add('active');
-      });
-  });
-  
-  // Vote Button Animation
-  const voteButtons = document.querySelectorAll('.vote-btn');
-  voteButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          // Add animation class
-          this.classList.add('pulse-animation');
-          
-          // Increment vote count
-          const voteCountElement = this.nextElementSibling;
-          let voteCount = parseInt(voteCountElement.textContent);
-          voteCountElement.textContent = voteCount + 1;
-          
-          // Show a tooltip or notification
-          showToast('Vote recorded!');
-          
-          // Remove animation class after animation completes
-          setTimeout(() => {
-              this.classList.remove('pulse-animation');
-          }, 300);
-      });
-  });
-  
-  // Answer Button Click
-  const answerButtons = document.querySelectorAll('.answer-btn');
-  answerButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          // In a real application, this would open a modal or redirect to an answer form
-          showToast('Answer form would open here');
-          
-          // For demonstration, we'll scroll to the newsletter section
-          const newsletterSection = document.querySelector('.newsletter-section');
-          newsletterSection.scrollIntoView({ behavior: 'smooth' });
-      });
-  });
-  
-  // Share Button Click
-  const shareButtons = document.querySelectorAll('.share-btn');
-  shareButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          // In a real application, this would open sharing options
-          showToast('Sharing options would appear here');
-      });
-  });
-  
-  // Question Title Click
-  const questionTitles = document.querySelectorAll('.question-title');
-  questionTitles.forEach(title => {
-      title.addEventListener('click', function() {
-          // In a real application, this would navigate to the question detail page
-          showToast('Navigating to question details...');
-          
-          // For demonstration, we'll add a loading effect
-          title.style.opacity = '0.7';
-          setTimeout(() => {
-              title.style.opacity = '1';
-              // Instead of navigation, we'll just show a message
-              showToast('This would navigate to the question detail page');
-          }, 500);
-      });
-  });
-  
-  // Ask Question Button
-  const askQuestionBtn = document.querySelector('.sidebar .btn-primary');
-  askQuestionBtn.addEventListener('click', function() {
-      showToast('Ask a question form would open here');
-  });
-  
-  // View Guidelines Button
-  const guidelinesBtn = document.querySelector('.sidebar .btn-outline');
-  guidelinesBtn.addEventListener('click', function() {
-      showToast('Community guidelines would open here');
-  });
-  
-  // Newsletter Subscription
-  const newsletterForm = document.querySelector('.newsletter-form');
-  newsletterForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const emailInput = this.querySelector('input[type="email"]');
-      const email = emailInput.value.trim();
-      
-      if (email === '') {
-          showToast('Please enter your email address', 'error');
-          return;
-      }
-      
-      if (!isValidEmail(email)) {
-          showToast('Please enter a valid email address', 'error');
-          return;
-      }
-      
-      // In a real application, this would submit the form to a server
-      showToast('Thank you for subscribing!', 'success');
-      emailInput.value = '';
-  });
-  
-  // Pagination Buttons
-  const pageButtons = document.querySelectorAll('.page-btn');
-  pageButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          if (this.classList.contains('active') || this.textContent === '...') {
-              return;
-          }
-          
-          pageButtons.forEach(btn => btn.classList.remove('active'));
-          
-          // Don't add active class to arrow buttons
-          if (!this.querySelector('i')) {
-              this.classList.add('active');
-          }
-          
-          showToast(`Navigating to page ${this.textContent}`);
-      });
-  });
-  
-  // Search Input
-  const searchInput = document.querySelector('.search-container input');
-  searchInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-          const searchTerm = this.value.trim();
-          if (searchTerm !== '') {
-              showToast(`Searching for: ${searchTerm}`);
-              // In a real application, this would perform a search
-          }
-      }
-  });
-  
-  // Filter and Sort Buttons
-  const filterBtn = document.querySelector('.filter-btn');
-  const sortBtn = document.querySelector('.sort-btn');
-  
-  filterBtn.addEventListener('click', function() {
-      showToast('Filter options would appear here');
-  });
-  
-  sortBtn.addEventListener('click', function() {
-      showToast('Sort options would appear here');
-  });
-  
-  // Tags Click
-  const tags = document.querySelectorAll('.tag');
-  tags.forEach(tag => {
-      tag.addEventListener('click', function() {
-          showToast(`Filtering by tag: ${this.textContent}`);
-      });
-  });
-  
-  // Helper Functions
-  function showToast(message, type = 'info') {
-      // Create toast element
-      const toast = document.createElement('div');
-      toast.className = `toast toast-${type}`;
-      toast.textContent = message;
-      
-      // Append to body
-      document.body.appendChild(toast);
-      
-      // Add visible class to trigger animation
-      setTimeout(() => {
-          toast.classList.add('visible');
-      }, 10);
-      
-      // Remove toast after 3 seconds
-      setTimeout(() => {
-          toast.classList.remove('visible');
-          setTimeout(() => {
-              document.body.removeChild(toast);
-          }, 300);
-      }, 3000);
-  }
-  
-  function isValidEmail(email) {
-      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(String(email).toLowerCase());
-  }
-  
-  // Add toast styling
-  const toastStyle = document.createElement('style');
-  toastStyle.textContent = `
-      .toast {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background-color: #333;
-          color: white;
-          padding: 12px 20px;
-          border-radius: 4px;
-          opacity: 0;
-          transform: translateY(20px);
-          transition: all 0.3s ease;
-          z-index: 1000;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-      
-      .toast.visible {
-          opacity: 1;
-          transform: translateY(0);
-      }
-      
-      .toast-info {
-          background-color: #2b7a1f;
-      }
-      
-      .toast-success {
-          background-color: #28a745;
-      }
-      
-      .toast-error {
-          background-color: #dc3545;
-      }
-      
-      .pulse-animation {
-          animation: pulse 0.3s ease;
-      }
-  `;
-  document.head.appendChild(toastStyle);
-  
-  // Create some initial animations
-  const questionCards = document.querySelectorAll('.question-card');
-  questionCards.forEach((card, index) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      
-      setTimeout(() => {
-          card.style.transition = 'all 0.5s ease';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-      }, 100 + (index * 150));
-  });
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize search functionality
+    initSearch();
+
+    // Initialize scroll animations
+    initScrollAnimations();
+
+    // Initialize discussion functionality
+    initDiscussion();
+});
+
+// Search functionality
+function initSearch() {
+    const searchInput = document.getElementById('knowledge-search');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', debounce(function (e) {
+        const searchTerm = e.target.value.toLowerCase();
+        filterContent(searchTerm);
+    }, 300));
+}
+
+// Debounce function to limit API calls
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Filter content based on search term
+function filterContent(searchTerm) {
+    const discussions = document.querySelectorAll('.discussion-item');
+    const topics = document.querySelectorAll('.topic-item');
+
+    // Filter discussions
+    discussions.forEach(discussion => {
+        const title = discussion.querySelector('h3').textContent.toLowerCase();
+        const content = discussion.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(searchTerm) || content.includes(searchTerm)) {
+            discussion.style.display = 'flex';
+        } else {
+            discussion.style.display = 'none';
+        }
+    });
+
+    // Filter topics
+    topics.forEach(topic => {
+        const topicText = topic.textContent.toLowerCase();
+        if (topicText.includes(searchTerm)) {
+            topic.style.display = 'flex';
+        } else {
+            topic.style.display = 'none';
+        }
+    });
+}
+
+// Scroll animations
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Discussion functionality
+function initDiscussion() {
+    const startDiscussionBtn = document.querySelector('.start-discussion-btn');
+    if (!startDiscussionBtn) return;
+
+    startDiscussionBtn.addEventListener('click', function () {
+        // Check if user is logged in
+        if (!isUserLoggedIn()) {
+            showLoginPrompt();
+            return;
+        }
+
+        // Redirect to new discussion page or show modal
+        window.location.href = 'new-discussion.html';
+    });
+}
+
+// Check if user is logged in
+function isUserLoggedIn() {
+    // This should be replaced with actual authentication check
+    return localStorage.getItem('userToken') !== null;
+}
+
+// Show login prompt
+function showLoginPrompt() {
+    // Create and show a modal or notification
+    const modal = document.createElement('div');
+    modal.className = 'login-prompt-modal';
+    modal.innerHTML = `
+        <div class="login-prompt-content">
+            <h3>Please Log In</h3>
+            <p>You need to be logged in to start a discussion.</p>
+            <div class="login-prompt-buttons">
+                <a href="login.html" class="btn-primary">Log In</a>
+                <a href="signup.html" class="btn-outline">Sign Up</a>
+                <button class="btn-text" onclick="this.closest('.login-prompt-modal').remove()">Cancel</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Add styles dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+        .login-prompt-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .login-prompt-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .login-prompt-content h3 {
+            font-family: 'Montagu Slab', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .login-prompt-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .login-prompt-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-text {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .btn-text:hover {
+            color: var(--text-color);
+        }
+    `;
+
+    document.head.appendChild(style);
+}
+
+// Handle discussion item clicks
+document.querySelectorAll('.discussion-item').forEach(item => {
+    item.addEventListener('click', function (e) {
+        // Don't trigger if clicking on meta information
+        if (e.target.closest('.discussion-meta')) return;
+
+        // Get discussion ID from data attribute or generate one
+        const discussionId = this.dataset.id || 'discussion-' + Math.random().toString(36).substr(2, 9);
+
+        // Redirect to discussion detail page
+        window.location.href = `discussion.html?id=${discussionId}`;
+    });
+});
+
+// Handle topic item clicks
+document.querySelectorAll('.topic-item').forEach(item => {
+    item.addEventListener('click', function (e) {
+        e.preventDefault();
+        const topic = this.querySelector('span').textContent;
+        filterContent(topic);
+    });
 });
